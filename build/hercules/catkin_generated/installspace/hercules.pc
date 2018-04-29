@@ -1,0 +1,8 @@
+prefix=/home/nvidia/zuckbot_ws/install
+
+Name: hercules
+Description: Description of hercules
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/nvidia/zuckbot_ws/install/lib 
+Requires: 

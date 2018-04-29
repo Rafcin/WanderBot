@@ -1,0 +1,8 @@
+prefix=/home/nvidia/zuckbot_ws/install
+
+Name: image_recognition_msgs
+Description: Description of image_recognition_msgs
+Version: 0.0.4
+Cflags: -I/home/nvidia/zuckbot_ws/install/include
+Libs: -L/home/nvidia/zuckbot_ws/install/lib 
+Requires: message_generation sensor_msgs

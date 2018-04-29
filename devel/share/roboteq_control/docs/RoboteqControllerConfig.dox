@@ -1,0 +1,16 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~pwm_frequency" : \b [double] [kHz] Frequency PWM motors min: 10.0, default: 10.0, max: 30.0
+- \b "~over_voltage_limit" : \b [double] [V] Over voltage limit min: 0.0, default: 10.0, max: 60.0
+- \b "~over_voltage_hysteresis" : \b [double] [V] Over voltage histeresis min: 0.0, default: 5.0, max: 25.5
+- \b "~under_voltage_limit" : \b [double] [V] Under voltage limit min: 0.0, default: 10.0, max: 60.0
+- \b "~break_delay" : \b [int] [ms] Break activation delay min: 0, default: 250, max: 65536
+- \b "~mixing" : \b [int] Type of mixing mode min: 0, default: 0, max: 3
+- \b "~load_roboteq" : \b [bool] Load all parameters from Roboteq board min: False, default: False, max: True
+- \b "~restore_defaults" : \b [bool] Restore to the original configuration min: False, default: False, max: True
+- \b "~factory_reset" : \b [bool] Factory reset the roboteq board min: False, default: False, max: True
+- \b "~store_in_eeprom" : \b [bool] Store all parameters in EEPROM min: False, default: False, max: True
+- \b "~load_from_eeprom" : \b [bool] Load all parameters from EEPROM min: False, default: False, max: True
+

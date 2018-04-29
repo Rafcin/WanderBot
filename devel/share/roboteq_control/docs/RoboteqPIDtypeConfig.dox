@@ -1,0 +1,8 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~closed_loop_velocity" : \b [int] Configuration closed loop min: 1, default: 6, max: 6
+- \b "~closed_loop_position" : \b [int] Configuration closed loop min: 2, default: 2, max: 4
+- \b "~restore_defaults" : \b [bool] Restore to the original configuration min: False, default: False, max: True
+

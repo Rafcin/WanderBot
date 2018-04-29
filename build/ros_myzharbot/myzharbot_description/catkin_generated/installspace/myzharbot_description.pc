@@ -1,0 +1,8 @@
+prefix=/home/nvidia/zuckbot_ws/install
+
+Name: myzharbot_description
+Description: Description of myzharbot_description
+Version: 0.1.0
+Cflags: 
+Libs: -L/home/nvidia/zuckbot_ws/install/lib 
+Requires: tf

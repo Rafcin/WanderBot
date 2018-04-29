@@ -1,0 +1,8 @@
+prefix=/home/nvidia/zuckbot_ws/install
+
+Name: ros_ultrasonic_bumper
+Description: Description of ros_ultrasonic_bumper
+Version: 0.1.0
+Cflags: -I/home/nvidia/zuckbot_ws/install/include
+Libs: -L/home/nvidia/zuckbot_ws/install/lib 
+Requires: serial std_msgs sensor_msgs geometry_msgs

@@ -1,0 +1,8 @@
+prefix=/home/nvidia/zuckbot_ws/devel
+
+Name: combined_robot_hw
+Description: Description of combined_robot_hw
+Version: 0.14.1
+Cflags: -I/home/nvidia/zuckbot_ws/src/ros_control/combined_robot_hw/include
+Libs: -L/home/nvidia/zuckbot_ws/devel/lib -lcombined_robot_hw
+Requires: hardware_interface pluginlib roscpp

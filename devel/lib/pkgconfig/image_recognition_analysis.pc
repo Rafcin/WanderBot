@@ -1,0 +1,8 @@
+prefix=/home/nvidia/zuckbot_ws/devel
+
+Name: image_recognition_analysis
+Description: Description of image_recognition_analysis
+Version: 0.0.1
+Cflags: 
+Libs: -L/home/nvidia/zuckbot_ws/devel/lib 
+Requires: 

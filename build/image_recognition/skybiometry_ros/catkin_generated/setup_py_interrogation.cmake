@@ -1,0 +1,6 @@
+set(skybiometry_ros_SETUP_PY_VERSION "0.0.4")
+set(skybiometry_ros_SETUP_PY_SCRIPTS "")
+set(skybiometry_ros_SETUP_PY_PACKAGES "skybiometry_ros")
+set(skybiometry_ros_SETUP_PY_PACKAGE_DIRS "src/skybiometry_ros")
+set(skybiometry_ros_SETUP_PY_MODULES "")
+set(skybiometry_ros_SETUP_PY_MODULE_DIRS "")

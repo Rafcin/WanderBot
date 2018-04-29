@@ -1,0 +1,8 @@
+prefix=/home/nvidia/zuckbot_ws/devel
+
+Name: guidebot_capabilities
+Description: Description of guidebot_capabilities
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/nvidia/zuckbot_ws/devel/lib 
+Requires: 

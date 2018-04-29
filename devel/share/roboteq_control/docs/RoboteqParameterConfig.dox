@@ -1,0 +1,16 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~ratio" : \b [double] [#] Gear ratio min: 0.0, default: 1.0, max: std::numeric_limits<double>::infinity()
+- \b "~rotation" : \b [int] Versus of the rotation of the motor min: -1, default: 1, max: 1
+- \b "~stall_detection" : \b [int] Stall detection min: 0, default: 1, max: 3
+- \b "~amper_limit" : \b [double] [A] Amper limit min: 1.0, default: 5.0, max: 20.0
+- \b "~max_forward" : \b [int] [%] IN MODULE - Maximum power forward min: 0, default: 100, max: 100
+- \b "~max_reverse" : \b [int] [%] IN MODULE - Maximum power reverse min: 0, default: 100, max: 100
+- \b "~max_speed" : \b [double] [RPM] max motor speed (after gear reduction) min: 0.0, default: 10.0, max: std::numeric_limits<double>::infinity()
+- \b "~max_acceleration" : \b [double] [RPM/s] max motor acceleration (after gear reduction) min: 0.0, default: 1000.0, max: std::numeric_limits<double>::infinity()
+- \b "~max_deceleration" : \b [double] [RPM/s] max motor deceleration (after gear reduction) min: 0.0, default: 1000.0, max: std::numeric_limits<double>::infinity()
+- \b "~load_roboteq" : \b [bool] Load all parameters from Roboteq board min: False, default: False, max: True
+- \b "~restore_defaults" : \b [bool] Restore to the original configuration min: False, default: False, max: True
+

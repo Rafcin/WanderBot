@@ -1,0 +1,8 @@
+prefix=/home/nvidia/zuckbot_ws/devel
+
+Name: image_recognition_rqt
+Description: Description of image_recognition_rqt
+Version: 0.0.4
+Cflags: 
+Libs: -L/home/nvidia/zuckbot_ws/devel/lib 
+Requires: 

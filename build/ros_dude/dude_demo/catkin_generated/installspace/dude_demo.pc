@@ -1,0 +1,8 @@
+prefix=/home/nvidia/zuckbot_ws/install
+
+Name: dude_demo
+Description: Description of dude_demo
+Version: 0.1.0
+Cflags: 
+Libs: -L/home/nvidia/zuckbot_ws/install/lib 
+Requires: 

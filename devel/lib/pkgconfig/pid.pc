@@ -1,0 +1,8 @@
+prefix=/home/nvidia/zuckbot_ws/devel
+
+Name: pid
+Description: Description of pid
+Version: 0.0.23
+Cflags: -I/home/nvidia/zuckbot_ws/devel/include -I/home/nvidia/zuckbot_ws/src/pid/include
+Libs: -L/home/nvidia/zuckbot_ws/devel/lib 
+Requires: roscpp std_msgs message_runtime dynamic_reconfigure

@@ -1,0 +1,8 @@
+prefix=/home/nvidia/zuckbot_ws/devel
+
+Name: tf
+Description: Description of tf
+Version: 1.11.9
+Cflags: -I/home/nvidia/zuckbot_ws/devel/include -I/home/nvidia/zuckbot_ws/src/geometry/tf/include
+Libs: -L/home/nvidia/zuckbot_ws/devel/lib -ltf
+Requires: geometry_msgs message_filters message_runtime roscpp sensor_msgs std_msgs tf2_ros rosconsole

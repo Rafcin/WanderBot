@@ -1,0 +1,6 @@
+set(tensorflow_ros_rqt_SETUP_PY_VERSION "0.0.4")
+set(tensorflow_ros_rqt_SETUP_PY_SCRIPTS "")
+set(tensorflow_ros_rqt_SETUP_PY_PACKAGES "tensorflow_ros_rqt")
+set(tensorflow_ros_rqt_SETUP_PY_PACKAGE_DIRS "src/tensorflow_ros_rqt")
+set(tensorflow_ros_rqt_SETUP_PY_MODULES "")
+set(tensorflow_ros_rqt_SETUP_PY_MODULE_DIRS "")

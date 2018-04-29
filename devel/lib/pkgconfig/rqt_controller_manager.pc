@@ -1,0 +1,8 @@
+prefix=/home/nvidia/zuckbot_ws/devel
+
+Name: rqt_controller_manager
+Description: Description of rqt_controller_manager
+Version: 0.14.1
+Cflags: 
+Libs: -L/home/nvidia/zuckbot_ws/devel/lib 
+Requires: 

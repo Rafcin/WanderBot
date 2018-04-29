@@ -1,0 +1,8 @@
+prefix=/home/nvidia/zuckbot_ws/install
+
+Name: ros_myzharbot_robot
+Description: Description of ros_myzharbot_robot
+Version: 0.0.1
+Cflags: 
+Libs: -L/home/nvidia/zuckbot_ws/install/lib 
+Requires: tf

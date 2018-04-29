@@ -1,0 +1,17 @@
+\subsubsection usage Usage
+\verbatim
+<node name="roboteq_node" pkg="roboteq_control" type="roboteq_node">
+  <param name="pwm_frequency" type="double" value="10.0" />
+  <param name="over_voltage_limit" type="double" value="10.0" />
+  <param name="over_voltage_hysteresis" type="double" value="5.0" />
+  <param name="under_voltage_limit" type="double" value="10.0" />
+  <param name="break_delay" type="int" value="250" />
+  <param name="mixing" type="int" value="0" />
+  <param name="load_roboteq" type="bool" value="False" />
+  <param name="restore_defaults" type="bool" value="False" />
+  <param name="factory_reset" type="bool" value="False" />
+  <param name="store_in_eeprom" type="bool" value="False" />
+  <param name="load_from_eeprom" type="bool" value="False" />
+</node>
+\endverbatim
+

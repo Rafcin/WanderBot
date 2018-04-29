@@ -1,0 +1,8 @@
+prefix=/home/nvidia/zuckbot_ws/devel
+
+Name: tensorflow_ros
+Description: Description of tensorflow_ros
+Version: 0.0.4
+Cflags: 
+Libs: -L/home/nvidia/zuckbot_ws/devel/lib 
+Requires: 

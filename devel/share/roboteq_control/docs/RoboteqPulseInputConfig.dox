@@ -1,0 +1,16 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~conversion" : \b [int] Type of pulse input conversion min: 0, default: 0, max: 4
+- \b "~input_use" : \b [int] Configuration pulse input min: 0, default: 0, max: 2
+- \b "~input_motor_one" : \b [int] Configuration pulse input min: 0, default: 0, max: 2
+- \b "~input_motor_two" : \b [int] Configuration pulse input min: 0, default: 0, max: 2
+- \b "~conversion_polarity" : \b [int] Conversion pulse input min: 0, default: 1, max: 1
+- \b "~input_deadband" : \b [int] [%] How the movement near to zero is considered zero min: 0, default: 0, max: 50
+- \b "~range_input_min" : \b [double] [ms] Set the pulse input min min: 0.0, default: 1.0, max: 65.536
+- \b "~range_input_max" : \b [double] [ms] Set the pulse input max min: 0.0, default: 2.0, max: 65.536
+- \b "~range_input_center" : \b [double] [ms] Set the pulse input center min: 0.0, default: 1.5, max: 65.536
+- \b "~load_roboteq" : \b [bool] Load all parameters from Roboteq board min: False, default: False, max: True
+- \b "~restore_defaults" : \b [bool] Restore to the original configuration min: False, default: False, max: True
+

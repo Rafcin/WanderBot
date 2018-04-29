@@ -1,0 +1,8 @@
+prefix=/home/nvidia/zuckbot_ws/install
+
+Name: tensorflow_ros_rqt
+Description: Description of tensorflow_ros_rqt
+Version: 0.0.4
+Cflags: 
+Libs: -L/home/nvidia/zuckbot_ws/install/lib 
+Requires: 

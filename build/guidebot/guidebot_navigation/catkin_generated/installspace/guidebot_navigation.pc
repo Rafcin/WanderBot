@@ -1,0 +1,8 @@
+prefix=/home/nvidia/zuckbot_ws/install
+
+Name: guidebot_navigation
+Description: Description of guidebot_navigation
+Version: 0.0.0
+Cflags: -I/home/nvidia/zuckbot_ws/install/include
+Libs: -L/home/nvidia/zuckbot_ws/install/lib -llinefollow_planner
+Requires: roscpp pluginlib costmap_2d base_local_planner nav_core

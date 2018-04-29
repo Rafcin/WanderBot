@@ -1,0 +1,17 @@
+\subsubsection usage Usage
+\verbatim
+<node name="roboteq_node" pkg="roboteq_control" type="roboteq_node">
+  <param name="conversion" type="int" value="0" />
+  <param name="input_use" type="int" value="0" />
+  <param name="input_motor_one" type="int" value="0" />
+  <param name="input_motor_two" type="int" value="0" />
+  <param name="conversion_polarity" type="int" value="1" />
+  <param name="input_deadband" type="int" value="0" />
+  <param name="range_input_min" type="double" value="0.1" />
+  <param name="range_input_max" type="double" value="4.9" />
+  <param name="range_input_center" type="double" value="2.5" />
+  <param name="load_roboteq" type="bool" value="False" />
+  <param name="restore_defaults" type="bool" value="False" />
+</node>
+\endverbatim
+

@@ -1,0 +1,21 @@
+<launch>
+
+<!--MOVEBASE-->
+   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <param name="controller_frequency" value="10"/>
+    <param name="controller_patience" value="10.0"/>
+    <param name="planner_patience" value="10.0"/>
+    <param name="clearing_rotation_allowed" value="true" />
+    <param name="recovery_behavior_enabled" value="true" />
+    <param name="oscillation_distance" value="0.2" />
+    <param name="planner_frequency" value="2" />
+    <param name="base_global_planner" value="global_planner/GlobalPlanner"/>
+    <!--param name="base_global_planner" value="carrot_planner/CarrotPlanner"/-->
+    <param name="base_local_planner"  value="dwa_local_planner/DWAPlannerROS"/>
+    <rosparam file="/home/ares/catkin_ws/tmp_launch/lly/config/costmap_common_params.yaml"  command="load"  ns="global_costmap"/>
+    <rosparam file="/home/ares/catkin_ws/tmp_launch/lly/config/costmap_common_params.yaml"  command="load"  ns="local_costmap"/>
+    <rosparam file="/home/ares/catkin_ws/tmp_launch/lly/config/local_costmap_params.yaml"   command="load"/>
+    <rosparam file="/home/ares/catkin_ws/tmp_launch/lly/config/global_costmap_params.yaml"  command="load"/>
+    <rosparam file="/home/ares/catkin_ws/tmp_launch/lly/config/dwa_params.yaml"  command="load"/>
+   </node>
+</launch>

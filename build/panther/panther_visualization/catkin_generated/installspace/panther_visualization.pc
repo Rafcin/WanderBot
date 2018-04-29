@@ -1,0 +1,8 @@
+prefix=/home/nvidia/zuckbot_ws/install
+
+Name: panther_visualization
+Description: Description of panther_visualization
+Version: 0.1.0
+Cflags: 
+Libs: -L/home/nvidia/zuckbot_ws/install/lib 
+Requires: 

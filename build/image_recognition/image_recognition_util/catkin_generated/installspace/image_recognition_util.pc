@@ -1,0 +1,8 @@
+prefix=/home/nvidia/zuckbot_ws/install
+
+Name: image_recognition_util
+Description: Description of image_recognition_util
+Version: 0.0.4
+Cflags: 
+Libs: -L/home/nvidia/zuckbot_ws/install/lib 
+Requires: 

@@ -1,0 +1,17 @@
+\subsubsection usage Usage
+\verbatim
+<node name="roboteq_node" pkg="roboteq_control" type="roboteq_node">
+  <param name="ratio" type="double" value="1.0" />
+  <param name="rotation" type="int" value="1" />
+  <param name="stall_detection" type="int" value="1" />
+  <param name="amper_limit" type="double" value="5.0" />
+  <param name="max_forward" type="int" value="100" />
+  <param name="max_reverse" type="int" value="100" />
+  <param name="max_speed" type="double" value="10.0" />
+  <param name="max_acceleration" type="double" value="1000.0" />
+  <param name="max_deceleration" type="double" value="1000.0" />
+  <param name="load_roboteq" type="bool" value="False" />
+  <param name="restore_defaults" type="bool" value="False" />
+</node>
+\endverbatim
+

@@ -1,0 +1,15 @@
+\subsubsection usage Usage
+\verbatim
+<node name="roboteq_node" pkg="roboteq_control" type="roboteq_node">
+  <param name="position_mode_velocity" type="int" value="0" />
+  <param name="turn_min_to_max" type="double" value="0.0" />
+  <param name="Kp" type="double" value="0.0" />
+  <param name="Ki" type="double" value="0.0" />
+  <param name="Kd" type="double" value="0.0" />
+  <param name="integrator_limit" type="int" value="100" />
+  <param name="loop_error_detection" type="int" value="0" />
+  <param name="load_roboteq" type="bool" value="False" />
+  <param name="restore_defaults" type="bool" value="False" />
+</node>
+\endverbatim
+

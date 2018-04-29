@@ -1,0 +1,6 @@
+set(guidebot_navigation_SETUP_PY_VERSION "0.0.0")
+set(guidebot_navigation_SETUP_PY_SCRIPTS "")
+set(guidebot_navigation_SETUP_PY_PACKAGES "guidebot_navigation")
+set(guidebot_navigation_SETUP_PY_PACKAGE_DIRS "nodes/guidebot_navigation")
+set(guidebot_navigation_SETUP_PY_MODULES "")
+set(guidebot_navigation_SETUP_PY_MODULE_DIRS "")

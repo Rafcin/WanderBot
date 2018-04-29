@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>guidebot_description</name>
+  <version>0.0.0</version>
+  <description>The guidebot_description package</description>
+
+  <maintainer email="samuellindgren91@gmail.com">Samuel Lindgren</maintainer>
+
+
+  <license>BSD</license>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>urdf</depend>
+  <depend>xacro</depend>
+  <depend>joint_state_publisher</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>rviz</depend>
+
+  <export>
+
+  </export>
+</package>

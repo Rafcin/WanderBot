@@ -1,0 +1,15 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~configuration" : \b [int] Configuration encoder min: 0, default: 0, max: 2
+- \b "~input_motor_one" : \b [int] Configuration pulse input min: 0, default: 0, max: 2
+- \b "~input_motor_two" : \b [int] Configuration pulse input min: 0, default: 0, max: 2
+- \b "~PPR" : \b [int] [#] An Integer parameter min: 0, default: 1, max: 5000
+- \b "~position" : \b [int] Position encoder respect to gears min: 0, default: 1, max: 1
+- \b "~encoder_low_count_limit" : \b [int] [#] Encoder minimum count value min: -2147000000, default: -1000, max: 2147000000
+- \b "~encoder_high_count_limit" : \b [int] [#] Encoder maximum count value min: -2147000000, default: 1000, max: 2147000000
+- \b "~encoder_home_count" : \b [int] [#] Encoder home count min: -2147000000, default: 0, max: 2147000000
+- \b "~load_roboteq" : \b [bool] Load all parameters from Roboteq board min: False, default: False, max: True
+- \b "~restore_defaults" : \b [bool] Restore to the original configuration min: False, default: False, max: True
+

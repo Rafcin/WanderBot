@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<launch>
+
+
+	<arg name="tf_map_scanmatch_transform_frame_name" default="scanmatcher_frame"/>
+	<arg name="base_frame" default="base_footprint"/>
+	<arg name="odom_frame" default="nav"/>
+	<arg name="pub_map_odom_transform" default="true"/>
+	<arg name="scan_subscriber_queue_size" default="5"/>
+	<arg name="scan_topic" default="scan"/>
+	<arg name="map_size" default="1024"/>	
+
+
+    <arg name="camera_model"          default="0" /> <!-- 0=ZED, 1=ZEDM-->
+    <arg name="svo_file"              default="" /><!-- <arg name="svo_file" default="path/to/svo/file.svo"> -->
+    <arg name="zed_id"                default="0" />
+    <!-- If a ZED SN is given, zed_id is ignored and the wrapper will specifically look for the ZED with the corresponding serial number -->
+    <arg name="serial_number"                default="0" /> 
+
+    <!-- GPU ID-->
+    <arg name="gpu_id"                default="-1" />
+    <!-- Definition coordinate frames -->
+    <arg name="publish_tf"            default="true" />
+    <arg name="odometry_frame"        default="odom" />
+    <arg name="camera_frame"          default="zed_left_camera" />
+    <arg name="depth_frame"           default="zed_depth_camera" />
+    <!-- Publish urdf zed -->
+    <arg name="publish_urdf"          default="true" />
+    
+    <node name="zed_wrapper_node" pkg="zed_wrapper" type="zed_wrapper_node" output="screen" required="true"><!-- launch-prefix="valgrind" --> 
+
+        <param name="camera_model" value="$(arg camera_model)" />
+        <!-- publish odometry frame -->
+        <param name="publish_tf"            value="$(arg publish_tf)" />
+        <!-- Configuration frame camera -->    
+        <param name="odometry_frame"        value="$(arg odometry_frame)" />
+        <param name="base_frame"            value="$(arg base_frame)" />
+        <param name="camera_frame"          value="$(arg camera_frame)" />
+        <param name="depth_frame"           value="$(arg depth_frame)" />
+    
+        <!-- SVO file path -->
+        <param name="svo_filepath"          value="$(arg svo_file)" />
+
+        <!-- ZED parameters -->
+        <param name="zed_id"                value="$(arg zed_id)" />
+        <param name="serial_number"      value="$(arg serial_number)" />
+
+        <param name="resolution"            value="2" />
+        <param name="quality"               value="1" />
+        <param name="sensing_mode"          value="0" />
+        <param name="frame_rate"            value="60" />
+        <param name="odometry_db"           value="" />
+        <param name="openni_depth_mode"     value="0" />
+        <param name="gpu_id"                value="$(arg gpu_id)" />
+        <param name="confidence"            value="100" />
+        <param name="gain"                  value="100" />
+        <param name="exposure"              value="100" />
+        <param name="auto_exposure"         value="true" />
+        <param name="depth_stabilization"   value="1" />
+
+        <!-- ROS topic names -->
+        <param name="rgb_topic"             value="rgb/image_rect_color" />
+        <param name="rgb_raw_topic"         value="rgb/image_raw_color" />
+        <param name="rgb_cam_info_topic"    value="rgb/camera_info" />
+        <param name="rgb_cam_info_raw_topic"    value="rgb/camera_info_raw" />
+
+        <param name="left_topic"            value="left/image_rect_color" />
+        <param name="left_raw_topic"        value="left/image_raw_color" />
+        <param name="left_cam_info_topic"   value="left/camera_info" />
+        <param name="left_cam_info_raw_topic"   value="left/camera_info_raw" />
+
+        <param name="right_topic"           value="right/image_rect_color" />
+        <param name="right_raw_topic"       value="right/image_raw_color" />
+        <param name="right_cam_info_topic"  value="right/camera_info" />
+        <param name="right_cam_info_raw_topic"  value="right/camera_info_raw" />
+
+        <param name="depth_topic"           value="depth/depth_registered" />
+        <param name="depth_cam_info_topic"  value="depth/camera_info" />
+
+        <param name="point_cloud_topic"     value="point_cloud/cloud_registered" />
+
+        <param name="odometry_topic"        value="odom" />
+
+    </node>
+
+    <!-- ROS URDF description of the ZED -->
+    <group if="$(arg publish_urdf)">
+        <param if="$(arg camera_model)" name="zed_description" textfile="$(find zed_wrapper)/urdf/zedm.urdf" />
+        <param unless="$(arg camera_model)" name="zed_description" textfile="$(find zed_wrapper)/urdf/zed.urdf" />
+        <node name="zed_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+            <remap from="robot_description" to="zed_description" />
+        </node>
+    </group>
+
+	<node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depthimage_to_laserscan">
+    	<param name="scan_height" value="100"/>
+        <param name="output_frame_id" value="/base_frame"/>
+        <param name="range_min" value="0.3"/>
+        <param name="range_max" value="60"/>
+        <remap from="image" to="/zed/depth/image_rect_color"/>
+        <remap from="scan" to="/zed/scan"/>
+	</node>
+
+
+
+ <!-- IMU -->
+
+
+    <arg name="razor_config_file" default="$(find razor_imu_9dof)/config/my_razor.yaml"/>
+    <node pkg="razor_imu_9dof" type="imu_node.py" name="imu_node" output="screen">
+      <rosparam file="$(arg razor_config_file)" command="load"/>
+    </node>
+
+
+ <!-- HECTOR SLAM -->
+
+
+
+    <node pkg="hector_mapping" type="hector_mapping" name="hector_mapping" output="screen"> 
+
+    <!-- Frame names -->
+		<param name="map_frame" value="/map"/>
+		<param name="base_frame" value="/base_frame"/>
+		<param name="odom_frame" value="/base_frame"/>
+	<!-- Tf use -->
+		<param name="use_tf_scan_transformation" value="true"/>
+		<param name="use_tf_pose_start_estimate" value="false"/>
+		<param name="pub_map_odom_transform" value="true"/>
+
+
+    <!-- Map size / start point -->
+    	<param name="map_resolution" value="0.03"/>
+    	<param name="map_size" value="$(arg map_size)"/>
+    	<param name="map_start_x" value="0.5"/>
+    	<param name="map_start_y" value="0.5" />
+    	<param name="map_multi_res_levels" value="6" />
+
+    <!-- Map update parameters -->
+    	<param name="update_factor_free" value="0.4"/>
+    	<param name="update_factor_occupied" value="0.9" />    
+    	<param name="map_update_distance_thresh" value="0.4"/>
+    	<param name="map_update_angle_thresh" value="0.6" />
+    	<param name="laser_z_min_value" value = "-1.0" />
+    	<param name="laser_z_max_value" value = "1.0" />
+
+    <!-- Advertising config --> 
+    	<param name="advertise_map_service" value="true"/>
+
+    	<param name="scan_subscriber_queue_size" value="$(arg scan_subscriber_queue_size)"/>
+    	<param name="scan_topic" value="/zed/scan"/>
+
+    <!-- Debug parameters -->
+
+      <param name="output_timing" value="false"/>
+      <param name="pub_drawings" value="false"/>
+      <param name="pub_debug_output" value="false"/>
+	</node>
+
+<!-- start path helper -->
+	<node pkg="hector_trajectory_server" type="hector_trajectory_server" name="hector_trajectory_server" output="screen">
+    	<param name="target_frame_name" type="string" value="/map" />
+    	<param name="source_frame_name" type="string" value="/base_frame" />
+    	<param name="trajectory_update_rate" type="double" value="4" />
+    	<param name="trajectory_publish_rate" type="double" value="0.25" />
+	</node>
+
+<!-- start map saver -->
+	<node pkg="hector_geotiff" type="geotiff_node" name="hector_geotiff_node" output="screen" launch-prefix="nice -n 15">
+    	<remap from="map" to="/dynamic_map" />
+    	<param name="map_file_path" type="string" value="/home/ubuntu/tmp/maps/" />
+   	 	<param name="map_file_base_name" type="string" value="hector_slam_map" />
+    	<param name="geotiff_save_period" type="double" value="60" />
+    	<param name="draw_background_checkerboard" type="bool" value="true" />
+    	<param name="draw_free_space_grid" type="bool" value="true" />
+
+    	<param name="plugins" type="string" value="hector_geotiff_plugins/TrajectoryMapWriter" />
+	</node>
+
+
+
+	<node pkg="tf" type="static_transform_publisher" name="imu_to_zed" args="0 0 0 0 0 0 /map /imu 100"/>
+  	<node pkg="tf" type="static_transform_publisher" name="zedscan_to_map" args="0 0 0 0 0 0 /map /scan 100"/>
+
+
+
+
+
+
+    <node pkg="rviz" type="rviz" name="rviz_menu" 
+   		args="-d $(find hercules)/rviz/hercules.rviz"/>
+
+</launch>

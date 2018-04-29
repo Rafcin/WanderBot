@@ -1,0 +1,8 @@
+prefix=/home/nvidia/zuckbot_ws/install
+
+Name: hardware_interface
+Description: Description of hardware_interface
+Version: 0.14.1
+Cflags: -I/home/nvidia/zuckbot_ws/install/include
+Libs: -L/home/nvidia/zuckbot_ws/install/lib 
+Requires: roscpp

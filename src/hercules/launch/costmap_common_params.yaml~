@@ -1,0 +1,33 @@
+
+# obstacle_range:The default maximum distance from the robot at which an obstacle will be inserted into the cost map in  
+# meters. This can be over-ridden on a per-sensor basis.
+obstacle_range: 3.0
+# 5
+# raytrace_range参数用来设置机器人检测自由空间的最大范围，设置为3.0意为在3米范围内，机器人将根据传感器的信息，清除范围内的自由空间。
+raytrace_range: 8
+# 8
+
+
+footprint: [[0.34,0.33],[0.44,0],[0.34,-0.33],[-0.34,-0.33],[-0.44,0],[-0.34,0.33]] #base_link
+#robot_radius: 0.12
+
+inflation_radius: 0.45
+cost_scaling_factor: 0.8
+#path_distance_bias:  1 #increase to make the robot follow the plan more closely
+#goal_distance_bias:  0 #increase to make the robot trajectory smoother and more efficient
+#occdist_scale: increase to make the robot more afraid to hit obstacles
+
+transform_tolerance: 0.5
+#resolution: 0.02 #before 0.05
+
+# observation_sources参数列出了代价地图需要关注的所有传感器信息
+# sensor_frame标识传感器的参考系名称
+observation_sources: scan
+scan:
+  data_type: LaserScan  # data_type表示激光数据或者点云数据使用的消息类型
+  topic: scan           # topic_name表示传感器发布的话题名称
+  # marking和clearing参数用来表示是否需要使用传感器的实时信息来添加或清楚代价地图中的障碍物信息
+  marking: true
+  clearing: true
+
+map_type: costmap

@@ -1,0 +1,14 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~position_mode_velocity" : \b [int] [RPM] Default speed at which move the motor moves in position mode min: 0, default: 0, max: 30000
+- \b "~turn_min_to_max" : \b [double] When the encoder are used is automatically computed min: 0.0, default: 0.0, max: 1000.0
+- \b "~Kp" : \b [double] Kp gain PID min: 0.0, default: 0.0, max: 25.5
+- \b "~Ki" : \b [double] Ki gain PID min: 0.0, default: 0.0, max: 25.5
+- \b "~Kd" : \b [double] Kd gain PID min: 0.0, default: 0.0, max: 25.5
+- \b "~integrator_limit" : \b [int] [#] Integrator limit min: 0, default: 100, max: 100
+- \b "~loop_error_detection" : \b [int] Loop error detection min: 0, default: 0, max: 3
+- \b "~load_roboteq" : \b [bool] Load all parameters from Roboteq board min: False, default: False, max: True
+- \b "~restore_defaults" : \b [bool] Restore to the original configuration min: False, default: False, max: True
+

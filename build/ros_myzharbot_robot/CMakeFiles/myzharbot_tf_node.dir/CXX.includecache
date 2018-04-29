@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/nvidia/zuckbot_ws/src/ros_myzharbot_robot/src/myzharbot_tf_node.cpp
+ros/ros.h
+-
+tf/transform_broadcaster.h
+-
+sensor_msgs/JointState.h
+-
+

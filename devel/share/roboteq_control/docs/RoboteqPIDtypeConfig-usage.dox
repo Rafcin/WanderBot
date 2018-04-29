@@ -1,0 +1,9 @@
+\subsubsection usage Usage
+\verbatim
+<node name="roboteq_node" pkg="roboteq_control" type="roboteq_node">
+  <param name="closed_loop_velocity" type="int" value="6" />
+  <param name="closed_loop_position" type="int" value="2" />
+  <param name="restore_defaults" type="bool" value="False" />
+</node>
+\endverbatim
+
